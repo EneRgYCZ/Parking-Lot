@@ -23,7 +23,8 @@ public class Log_In extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-
+                Intent intent = new Intent(Log_In.this, Harta.class);
+                startActivity(intent);
             }
         });
     }
