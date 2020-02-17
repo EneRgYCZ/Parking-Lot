@@ -15,6 +15,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -24,6 +25,10 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.maps.DirectionsApiRequest;
+import com.google.maps.GeoApiContext;
+import com.google.maps.PendingResult;
+import com.google.maps.model.DirectionsResult;
 
 import java.io.IOException;
 import java.util.List;
@@ -33,6 +38,10 @@ public class Harta extends FragmentActivity implements OnMapReadyCallback
 {
 
     private GoogleMap mMap;
+
+    private static final String TAG = "Harta";
+
+    private  GeoApiContext mGeoApiContext = null;
 
     LocationManager locationManager;
 
@@ -88,10 +97,7 @@ public class Harta extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onLocationChanged(Location location)
             {
-                //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(, 13));
                 LatLng locatie = new LatLng(location.getLatitude(), location.getLongitude());
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(locatie, 13));
-
             }
 
             @Override
@@ -128,5 +134,42 @@ public class Harta extends FragmentActivity implements OnMapReadyCallback
             mMap.addMarker(new MarkerOptions().position(locatie));
         }
 
+        LatLng PrimaParcare = new LatLng(45.4993885,25.5748931);
+
+        mMap.addMarker(new MarkerOptions().position(PrimaParcare));
+
+        if (mGeoApiContext == null)
+        {
+            mGeoApiContext = new GeoApiContext.Builder()
+                    .apiKey(getString(R.string.google_maps_key))
+                    .build();
+        }
+
+        /* private void calculateDirections(Marker marker){
+        Log.d(TAG, "calculateDirections: calculating directions.");
+
+        com.google.maps.model.LatLng destination = new com.google.maps.model.LatLng(
+                marker.getPosition().latitude,
+                marker.getPosition().longitude
+        );
+        DirectionsApiRequest directions = new DirectionsApiRequest(mGeoApiContext);
+
+        directions.alternatives(true);
+        directions.origin(
+                new com.google.maps.model.LatLng(
+                        locationManager.getGeo_point().getLatitude(),
+                        locationManager.getGeo_point().getLongitude()
+                )
+        );
+        Log.d(TAG, "calculateDirections: destination: " + destination.toString());
+        directions.destination(destination).setCallback(new PendingResult.Callback<DirectionsResult>() {
+            @Override
+            public void onResult(DirectionsResult result) {
+                Log.d(TAG, "calculateDirections: routes: " + result.routes[0].toString());
+                Log.d(TAG, "calculateDirections: duration: " + result.routes[0].legs[0].duration);
+                Log.d(TAG, "calculateDirections: distance: " + result.routes[0].legs[0].distance);
+                Log.d(TAG, "calculateDirections: geocodedWayPoints: " + result.geocodedWaypoints[0].toString());
+            }
+    }*/
     }
 }
