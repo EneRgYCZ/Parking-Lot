@@ -6,46 +6,69 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Address;
-import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.maps.DirectionsApiRequest;
-import com.google.maps.GeoApiContext;
-import com.google.maps.PendingResult;
-import com.google.maps.model.DirectionsResult;
-
-import java.io.IOException;
-import java.util.List;
-import java.util.Locale;
+import com.google.maps.android.clustering.ClusterManager;
 
 public class Harta extends FragmentActivity implements OnMapReadyCallback
 {
-
     private GoogleMap mMap;
-
-    private static final String TAG = "Harta";
-
-    private  GeoApiContext mGeoApiContext = null;
 
     LocationManager locationManager;
 
     LocationListener locationListener;
+
+    private ClusterManager<MyItem> mClusterManager;
+
+    private void setUpClusterer()
+    {
+        // Position the map.
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(45.4993885,25.5748931), 15));
+
+        // Initialize the manager with the context and the map.
+        // (Activity extends context, so we can pass 'this' in the constructor.)
+        mClusterManager = new ClusterManager<MyItem>(this, mMap);
+
+        // Point the map's listeners at the listeners implemented by the cluster
+        // manager.
+        mMap.setOnCameraIdleListener(mClusterManager);
+        mMap.setOnMarkerClickListener(mClusterManager);
+
+        // Add cluster items (markers) to the cluster manager.
+        addItems();
+    }
+
+    private void addItems()
+    {
+
+        // Set some lat/lng coordinates to start with.
+        double lat = 45.4993885;
+        double lng = -25.5748931;
+
+        // Add ten cluster items in close proximity, for purposes of this example.
+        for (int i = 0; i < 10; i++) {
+            double offset = i / 60d;
+            lat = lat + offset;
+            lng = lng + offset;
+            MyItem offsetItem = new MyItem(lat, lng," "," ");
+            mClusterManager.addItem(offsetItem);
+        }
+    }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
@@ -134,42 +157,60 @@ public class Harta extends FragmentActivity implements OnMapReadyCallback
             mMap.addMarker(new MarkerOptions().position(locatie));
         }
 
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener()
+        {
+            @Override
+            public boolean onMarkerClick(Marker marker)
+            {
+                Intent intent = new Intent(Harta.this, Rezervation.class);
+                startActivity(intent);
+                return false;
+            }
+        });
+
         LatLng PrimaParcare = new LatLng(45.4993885,25.5748931);
 
-        mMap.addMarker(new MarkerOptions().position(PrimaParcare));
-
-        if (mGeoApiContext == null)
-        {
-            mGeoApiContext = new GeoApiContext.Builder()
-                    .apiKey(getString(R.string.google_maps_key))
-                    .build();
-        }
-
-        /* private void calculateDirections(Marker marker){
-        Log.d(TAG, "calculateDirections: calculating directions.");
-
-        com.google.maps.model.LatLng destination = new com.google.maps.model.LatLng(
-                marker.getPosition().latitude,
-                marker.getPosition().longitude
+        Marker mPrimaParcare = mMap.addMarker(new MarkerOptions()
+                .position(PrimaParcare)
+                .title("Parcare Fulg de Nea")
+                .snippet("Rateing:4.1 || Locuri libere:32")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
         );
-        DirectionsApiRequest directions = new DirectionsApiRequest(mGeoApiContext);
 
-        directions.alternatives(true);
-        directions.origin(
-                new com.google.maps.model.LatLng(
-                        locationManager.getGeo_point().getLatitude(),
-                        locationManager.getGeo_point().getLongitude()
-                )
+        LatLng ADouaParcare = new LatLng(45.4993885,25.5758931);
+
+        Marker mADouaParcare = mMap.addMarker(new MarkerOptions()
+                .position(ADouaParcare)
+                .title("Parcare Fulg de Nea")
+                .snippet("Rateing:4.1 || Locuri libere:32")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
         );
-        Log.d(TAG, "calculateDirections: destination: " + destination.toString());
-        directions.destination(destination).setCallback(new PendingResult.Callback<DirectionsResult>() {
-            @Override
-            public void onResult(DirectionsResult result) {
-                Log.d(TAG, "calculateDirections: routes: " + result.routes[0].toString());
-                Log.d(TAG, "calculateDirections: duration: " + result.routes[0].legs[0].duration);
-                Log.d(TAG, "calculateDirections: distance: " + result.routes[0].legs[0].distance);
-                Log.d(TAG, "calculateDirections: geocodedWayPoints: " + result.geocodedWaypoints[0].toString());
-            }
-    }*/
+
+        LatLng ATreiaParcare = new LatLng(45.4993885,25.5768931);
+
+        Marker mATreiaParcare = mMap.addMarker(new MarkerOptions()
+                .position(ATreiaParcare)
+                .title("Parcare Fulg de Nea")
+                .snippet("Rateing:4.1 || Locuri libere:32")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+        );
+
+        LatLng APatraParcare = new LatLng(45.4993885,25.5755931);
+
+        Marker mAPatraParcare = mMap.addMarker(new MarkerOptions()
+                .position(APatraParcare)
+                .title("Parcare Fulg de Nea")
+                .snippet("Rateing:4.1 || Locuri libere:32")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+        );
+
+        LatLng ACinceaParcare = new LatLng(45.4993885,25.5762931);
+
+        Marker mACinceaParcare = mMap.addMarker(new MarkerOptions()
+                .position(ACinceaParcare)
+                .title("Parcare Fulg de Nea")
+                .snippet("Rateing:4.1 || Locuri libere:32")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+        );
     }
 }

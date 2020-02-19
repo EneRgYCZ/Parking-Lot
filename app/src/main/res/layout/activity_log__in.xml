@@ -45,7 +45,7 @@
         android:layout_height="41dp"
         android:background="@drawable/password"
         android:ems="10"
-        android:hint="  Password"
+        android:hint="Password"
         android:inputType="textPassword"
         android:nestedScrollingEnabled="false"
         android:paddingLeft="20dp"
@@ -59,8 +59,8 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="208dp"
-        android:layout_height="21dp"
+        android:layout_width="165dp"
+        android:layout_height="14dp"
         android:alpha="1"
         android:background="@drawable/signup"
         app:layout_constraintBottom_toBottomOf="parent"
