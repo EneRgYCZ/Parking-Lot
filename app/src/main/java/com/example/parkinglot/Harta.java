@@ -24,8 +24,30 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.maps.android.clustering.ClusterManager;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Harta extends FragmentActivity implements OnMapReadyCallback
 {
+    LatLng PrimaParcare = new LatLng(45.4993885,25.5748931);
+    LatLng ADouaParcare = new LatLng(45.4993885,25.5758931);
+    LatLng ATreiaParcare = new LatLng(45.4993885,25.5768931);
+    LatLng APatraParcare = new LatLng(45.4993885,25.5755931);
+    LatLng ACinceaParcare = new LatLng(45.4993885,25.5762931);
+
+    final String numeParcare1 = "Fulg de Nea";
+    final String numeParcare2 = "Nu e fulg de nea";
+    final String numeParcare3 = "Gelu";
+    final String numeParcare4 = "Mega";
+    final String numeParcare5 = "Mamaiot";
+
+    final String detalii1 = "Rateing:4.1 || Locuri libere:32";
+    final String detalii2 = "Rateing:4.4 || Locuri libere:122";
+    final String detalii3 = "Rateing:4.2 || Locuri libere:132";
+    final String detalii4 = "Rateing:4.9 || Locuri libere:192";
+    final String detalii5 = "Rateing:4.7 || Locuri libere:12";
+
     private GoogleMap mMap;
 
     LocationManager locationManager;
@@ -54,7 +76,6 @@ public class Harta extends FragmentActivity implements OnMapReadyCallback
 
     private void addItems()
     {
-
         // Set some lat/lng coordinates to start with.
         double lat = 45.4993885;
         double lng = -25.5748931;
@@ -69,7 +90,6 @@ public class Harta extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
     {
@@ -79,7 +99,7 @@ public class Harta extends FragmentActivity implements OnMapReadyCallback
         {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
             {
-                locationManager.requestLocationUpdates(locationManager.GPS_PROVIDER, 0, 0, locationListener);
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
             }
         }
 
@@ -106,6 +126,8 @@ public class Harta extends FragmentActivity implements OnMapReadyCallback
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+
+
     @Override
     public void onMapReady(GoogleMap googleMap)
     {
@@ -148,7 +170,7 @@ public class Harta extends FragmentActivity implements OnMapReadyCallback
         }
         else
         {
-            locationManager.requestLocationUpdates(locationManager.GPS_PROVIDER, 0, 0, locationListener);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
 
             Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
@@ -157,60 +179,98 @@ public class Harta extends FragmentActivity implements OnMapReadyCallback
             mMap.addMarker(new MarkerOptions().position(locatie));
         }
 
-        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener()
-        {
-            @Override
-            public boolean onMarkerClick(Marker marker)
-            {
-                Intent intent = new Intent(Harta.this, Rezervation.class);
-                startActivity(intent);
-                return false;
-            }
-        });
-
-        LatLng PrimaParcare = new LatLng(45.4993885,25.5748931);
+        mMap.setOnMarkerClickListener
+                (new GoogleMap.OnMarkerClickListener()
+                {
+                    @Override
+                    public boolean onMarkerClick(Marker marker)
+                    {
+                        if (marker.isFlat() == true)
+                        {
+                            if (marker.getZIndex() == 1.0f)
+                            {
+                                Intent intent = new Intent(Harta.this, Rezervation.class);
+                                intent.putExtra("numeParcare1", numeParcare1);
+                                intent.putExtra("detalii1", detalii1);
+                                startActivity(intent);
+                            }
+                            if (marker.getZIndex() == 2.0f)
+                            {
+                                Intent intent2 = new Intent(Harta.this, Rezervation1.class);
+                                intent2.putExtra("numeParcare2", numeParcare2);
+                                intent2.putExtra("detalii2", detalii2);
+                                startActivity(intent2);
+                            }
+                            if (marker.getZIndex() == 3.0f)
+                            {
+                                Intent intent3 = new Intent(Harta.this, Rezervation2.class);
+                                intent3.putExtra("numeParcare3", numeParcare3);
+                                intent3.putExtra("detalii3", detalii3);
+                                startActivity(intent3);
+                            }
+                            if (marker.getZIndex() == 4.0f)
+                            {
+                                Intent intent4 = new Intent(Harta.this, Rezervation3.class);
+                                intent4.putExtra("numeParcare4", numeParcare4);
+                                intent4.putExtra("detalii4", detalii4);
+                                startActivity(intent4);
+                            }
+                            if (marker.getZIndex() == 5.0f)
+                            {
+                                Intent intent5 = new Intent(Harta.this, Rezervation4.class);
+                                intent5.putExtra("numeParcare5", numeParcare5);
+                                intent5.putExtra("detalii5", detalii5);
+                                startActivity(intent5);
+                            }
+                        }
+                        return false;
+                    }
+                }
+        );
 
         Marker mPrimaParcare = mMap.addMarker(new MarkerOptions()
                 .position(PrimaParcare)
-                .title("Parcare Fulg de Nea")
-                .snippet("Rateing:4.1 || Locuri libere:32")
+                .title(numeParcare1)
+                .snippet(detalii1)
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+                .flat(true)
+                .zIndex(1.0f)
         );
-
-        LatLng ADouaParcare = new LatLng(45.4993885,25.5758931);
 
         Marker mADouaParcare = mMap.addMarker(new MarkerOptions()
                 .position(ADouaParcare)
-                .title("Parcare Fulg de Nea")
-                .snippet("Rateing:4.1 || Locuri libere:32")
+                .title(numeParcare2)
+                .snippet(detalii2)
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+                .flat(true)
+                .zIndex(2.0f)
         );
-
-        LatLng ATreiaParcare = new LatLng(45.4993885,25.5768931);
 
         Marker mATreiaParcare = mMap.addMarker(new MarkerOptions()
                 .position(ATreiaParcare)
-                .title("Parcare Fulg de Nea")
-                .snippet("Rateing:4.1 || Locuri libere:32")
+                .title(numeParcare3)
+                .snippet(detalii3)
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+                .flat(true)
+                .zIndex(3.0f)
         );
-
-        LatLng APatraParcare = new LatLng(45.4993885,25.5755931);
 
         Marker mAPatraParcare = mMap.addMarker(new MarkerOptions()
                 .position(APatraParcare)
-                .title("Parcare Fulg de Nea")
-                .snippet("Rateing:4.1 || Locuri libere:32")
+                .title(numeParcare4)
+                .snippet(detalii4)
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+                .flat(true)
+                .zIndex(4.0f)
         );
-
-        LatLng ACinceaParcare = new LatLng(45.4993885,25.5762931);
 
         Marker mACinceaParcare = mMap.addMarker(new MarkerOptions()
                 .position(ACinceaParcare)
-                .title("Parcare Fulg de Nea")
-                .snippet("Rateing:4.1 || Locuri libere:32")
+                .title(numeParcare5)
+                .snippet(detalii5)
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+                .flat(true)
+                .zIndex(5.0f)
         );
     }
 }
