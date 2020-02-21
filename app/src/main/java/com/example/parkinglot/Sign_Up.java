@@ -23,24 +23,26 @@ public class Sign_Up extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign__up);
-        db = new Parole_Si_Conturi(this);
+        db = new Parole_Si_Conturi();
         username = findViewById(R.id.editText2);
         password = findViewById(R.id.editText3);
         btn = findViewById(R.id.button);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String user = username.getText().toString().trim();
-                String pwd = password.getText().toString().trim();
-                long val = db.addUser(user,pwd);
-                if(val>0)
-                {
+
+        //        String user = username.getText().toString().trim();
+        //        String pwd = password.getText().toString().trim();
+        //        long val = db.addUser(user,pwd);
+        //        if(val>0)
+        //        {
+                    db.addInfo(password.getText().toString(),username.getText().toString());
                     startActivity(new Intent(Sign_Up.this,Log_In.class));
-                }
-                else
-                {
-                    Toast.makeText(Sign_Up.this,"Registration Error",Toast.LENGTH_SHORT);
-                }
+         //       }
+         //       else
+          //      {
+          //          Toast.makeText(Sign_Up.this,"Registration Error",Toast.LENGTH_SHORT);
+          //      }
             }
         });
 
