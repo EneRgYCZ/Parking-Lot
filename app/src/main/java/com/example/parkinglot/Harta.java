@@ -13,6 +13,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -30,23 +31,27 @@ import java.util.List;
 
 public class Harta extends FragmentActivity implements OnMapReadyCallback
 {
-    LatLng PrimaParcare = new LatLng(45.4993885,25.5748931);
-    LatLng ADouaParcare = new LatLng(45.4993885,25.5758931);
-    LatLng ATreiaParcare = new LatLng(45.4993885,25.5768931);
-    LatLng APatraParcare = new LatLng(45.4993885,25.5755931);
-    LatLng ACinceaParcare = new LatLng(45.4993885,25.5762931);
+    LatLng PrimaParcare = new LatLng(44.203010, 28.632004);
+    LatLng ADouaParcare = new LatLng(44.1763782,28.6577031);
+    LatLng ATreiaParcare = new LatLng(44.130077,28.6497458);
+    LatLng APatraParcare = new LatLng(44.1601287,28.6136945);
+    LatLng ACinceaParcare = new LatLng(44.209110, 28.623817);
+    LatLng ASaseaParcare = new LatLng(44.249110, 28.621817);
 
-    final String numeParcare1 = "Fulg de Nea";
-    final String numeParcare2 = "Nu e fulg de nea";
-    final String numeParcare3 = "Gelu";
-    final String numeParcare4 = "Mega";
-    final String numeParcare5 = "Mamaiot";
+    final String numeParcare1 = "City Park Mall";
+    final String numeParcare2 = "Modern Beach";
+    final String numeParcare3 = "Port Constanta";
+    final String numeParcare4 = "Poarta 1";
+    final String numeParcare5 = "Mihai Viteazu";
+    final String numeParcare6 = "ISB";
 
-    final String detalii1 = "Rateing:4.1 || Locuri libere:32";
-    final String detalii2 = "Rateing:4.4 || Locuri libere:122";
-    final String detalii3 = "Rateing:4.2 || Locuri libere:132";
-    final String detalii4 = "Rateing:4.9 || Locuri libere:192";
-    final String detalii5 = "Rateing:4.7 || Locuri libere:12";
+    final String detalii1 = "Rateing:3.9 || Locuri libere:130";
+    final String detalii2 = "Rateing:4.4 || Locuri libere:30";
+    final String detalii3 = "Rateing:4.0 || Locuri libere:82";
+    final String detalii4 = "Rateing:4.2 || Locuri libere:10";
+    final String detalii5 = "Rateing:4.5 || Locuri libere:12";
+    final String detalii6 = "Rateing:4.9 || Locuri libere:0";
+
 
     private GoogleMap mMap;
 
@@ -222,6 +227,10 @@ public class Harta extends FragmentActivity implements OnMapReadyCallback
                                 intent5.putExtra("detalii5", detalii5);
                                 startActivity(intent5);
                             }
+                            if (marker.getZIndex() == 6.0f)
+                            {
+                                Toast.makeText(Harta.this,"Ne pare rau aceasta parcare nu mai are locuri disponibile",Toast.LENGTH_LONG);
+                            }
                         }
                         return false;
                     }
@@ -271,6 +280,15 @@ public class Harta extends FragmentActivity implements OnMapReadyCallback
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                 .flat(true)
                 .zIndex(5.0f)
+        );
+
+        Marker mASaseaParcare = mMap.addMarker(new MarkerOptions()
+                .position(ASaseaParcare)
+                .title(numeParcare6)
+                .snippet(detalii6)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+                .flat(true)
+                .zIndex(6.0f)
         );
     }
 }

@@ -28,9 +28,11 @@ public class Log_In extends AppCompatActivity
         password = findViewById(R.id.editText4);
         sign_up = findViewById(R.id.button2);
         log_in = findViewById(R.id.button);
-        sign_up.setOnClickListener(new View.OnClickListener() {
+        sign_up.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 startActivity(new Intent(Log_In.this,Sign_Up.class));
             }
         });
@@ -39,18 +41,19 @@ public class Log_In extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                String user = username.getText().toString().trim();
-                String pwd = password.getText().toString().trim();
-                Boolean res = db.checkUser(user,pwd);
-                if(res==true)
-                {
+                //String user = username.getText().toString().trim();
+                //String pwd = password.getText().toString().trim();
+                //final Boolean res = db.checkUser(user,pwd);
+                //if(res==true)
+                //{
                     Intent intent = new Intent(Log_In.this, Harta.class);
                     startActivity(intent);
-                }
-                else
-                {
-                    Toast.makeText(Log_In.this,"Login Error",Toast.LENGTH_SHORT);
-                }
+                    //Toast.makeText(Log_In.this,"Login Error",Toast.LENGTH_SHORT);
+                //}
+                //else
+                //{
+                   //Toast.makeText(Log_In.this,"Login Error",Toast.LENGTH_SHORT);
+                //}
             }
         });
     }
