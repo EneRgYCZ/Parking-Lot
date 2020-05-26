@@ -2,10 +2,10 @@ package com.example.parkinglot;
 
 public class Parole_Si_Conturi  {
     public String [] parole ={
-      "1","2","3","4","5"
+      "admin","12345","3","parola","5"
     };
     public String [] conturi = {
-            "1","2","3","4","5"
+            "admin@admin.com","catalin.zaharia2013@gmail.com","3","popescu.ion@gmail.com","5"
     };
     public int n=0;
    public void addInfo(String x,String y)

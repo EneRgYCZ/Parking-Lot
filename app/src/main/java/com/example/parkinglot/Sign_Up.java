@@ -37,7 +37,9 @@ public class Sign_Up extends AppCompatActivity
         //        if(val>0)
         //        {
                     db.addInfo(password.getText().toString(),username.getText().toString());
+                    Intent intent = new Intent(Sign_Up.this,Log_In.class);
                     startActivity(new Intent(Sign_Up.this,Log_In.class));
+                    Toast.makeText(Sign_Up.this, "Registration Successfully",Toast.LENGTH_SHORT).show();
          //       }
          //       else
           //      {

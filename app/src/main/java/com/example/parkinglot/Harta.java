@@ -31,26 +31,26 @@ import java.util.List;
 
 public class Harta extends FragmentActivity implements OnMapReadyCallback
 {
-    LatLng PrimaParcare = new LatLng(44.203010, 28.632004);
-    LatLng ADouaParcare = new LatLng(44.1763782,28.6577031);
-    LatLng ATreiaParcare = new LatLng(44.130077,28.6497458);
-    LatLng APatraParcare = new LatLng(44.1601287,28.6136945);
-    LatLng ACinceaParcare = new LatLng(44.209110, 28.623817);
-    LatLng ASaseaParcare = new LatLng(44.249110, 28.621817);
+    LatLng PrimaParcare = new LatLng(44.388492, 26.105924);
+    LatLng ADouaParcare = new LatLng(44.3962683,26.0912121);
+    LatLng ATreiaParcare = new LatLng(44.4325074,26.1039271);
+    LatLng APatraParcare = new LatLng(44.4124232,26.0752476);
+    LatLng ACinceaParcare = new LatLng(44.4425803,26.0879505);
+    LatLng ASaseaParcare = new LatLng(44.4288856,26.2138673);
 
-    final String numeParcare1 = "City Park Mall";
-    final String numeParcare2 = "Modern Beach";
-    final String numeParcare3 = "Port Constanta";
-    final String numeParcare4 = "Poarta 1";
-    final String numeParcare5 = "Mihai Viteazu";
+    final String numeParcare1 = "Izvorul Rece";
+    final String numeParcare2 = "Parcul Tineretului ";
+    final String numeParcare3 = "Calea Mosilor";
+    final String numeParcare4 = "Smart Parking";
+    final String numeParcare5 = "Lipscani";
     final String numeParcare6 = "ISB";
 
-    final String detalii1 = "Rateing:3.9 || Locuri libere:130";
-    final String detalii2 = "Rateing:4.4 || Locuri libere:30";
-    final String detalii3 = "Rateing:4.0 || Locuri libere:82";
-    final String detalii4 = "Rateing:4.2 || Locuri libere:10";
-    final String detalii5 = "Rateing:4.5 || Locuri libere:12";
-    final String detalii6 = "Rateing:4.9 || Locuri libere:0";
+    final String detalii1 = "Rate-ing:3.9 || Locuri libere:130";
+    final String detalii2 = "Rate-ing:4.4 || Locuri libere:30";
+    final String detalii3 = "Rate-ing:4.0 || Locuri libere:82";
+    final String detalii4 = "Rate-ing:4.2 || Locuri libere:10";
+    final String detalii5 = "Rate-ing:4.5 || Locuri libere:12";
+    final String detalii6 = "Rate-ing:4.9 || Locuri libere:0";
 
 
     private GoogleMap mMap;
