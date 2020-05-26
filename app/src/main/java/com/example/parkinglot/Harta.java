@@ -32,14 +32,14 @@ import java.util.List;
 public class Harta extends FragmentActivity implements OnMapReadyCallback
 {
     LatLng PrimaParcare = new LatLng(44.1776748,28.6583111);
-    LatLng ADouaParcare = new LatLng(44.1724993, 28.6185041);
+    LatLng ADouaParcare = new LatLng(44.1992839,28.6070247);
     LatLng ATreiaParcare = new LatLng(44.2030290,28.6320593);
     LatLng APatraParcare = new LatLng(44.2217618,28.6296885);
     LatLng ACinceaParcare = new LatLng(44.2168731,28.6377903);
     LatLng ASaseaParcare = new LatLng(44.178519,28.6461918);
 
     final String numeParcare1 = "Modern Beach Parking";
-    final String numeParcare2 = "Poarta 1";
+    final String numeParcare2 = "Vivo Shopping Center";
     final String numeParcare3 = "City Park Mall";
     final String numeParcare4 = "Aqua Magic";
     final String numeParcare5 = "Pavilionul Expozitional";
