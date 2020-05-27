@@ -52,30 +52,11 @@
         android:nestedScrollingEnabled="false"
         android:paddingLeft="20dp"
         android:textColor="#2699FB"
-        app:layout_constraintBottom_toTopOf="@+id/editText5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2"
-        app:layout_constraintVertical_bias="0.376" />
-
-    <EditText
-        android:id="@+id/editText4"
-        android:layout_width="376dp"
-        android:layout_height="41dp"
-        android:background="@drawable/age"
-        android:ems="10"
-        android:hint="Age"
-        android:inputType="number"
-        android:nestedScrollingEnabled="false"
-        android:paddingLeft="20dp"
-        android:textColor="#2699FB"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5"
-        app:layout_constraintVertical_bias="0.628" />
+        app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
     <Button
         android:id="@+id/button"
@@ -85,24 +66,6 @@
         android:background="@drawable/continue_button"
         android:textSize="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText4"
-        app:layout_constraintVertical_bias="0.31" />
-
-    <EditText
-        android:id="@+id/editText5"
-        android:layout_width="376dp"
-        android:layout_height="41dp"
-        android:background="@drawable/radius_of_interest"
-        android:ems="10"
-        android:hint="City"
-        android:inputType="text"
-        android:nestedScrollingEnabled="false"
-        android:paddingLeft="20dp"
-        android:textColor="#2699FB"
-        app:layout_constraintBottom_toTopOf="@+id/editText4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

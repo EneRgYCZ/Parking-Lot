@@ -16,7 +16,7 @@ public class Rezervation2 extends AppCompatActivity
     Button btn;
     TextView titlu;
     TextView detalii;
-    EditText nrInmatriculare;
+    EditText NrInmatriculare;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -26,7 +26,7 @@ public class Rezervation2 extends AppCompatActivity
         Intent intent = getIntent();
         String parcare1 = intent.getExtras().getString("numeParcare3");
         String detalii1 = intent.getExtras().getString("detalii3");
-        nrInmatriculare = (EditText)findViewById(R.id.editText);
+        NrInmatriculare = (EditText)findViewById(R.id.editText);
         btn = (Button)findViewById(R.id.button3);
         titlu = (TextView)findViewById(R.id.textView2);
         detalii = (TextView)findViewById(R.id.textView);
@@ -35,8 +35,10 @@ public class Rezervation2 extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                String NR_Inmatriculare = NrInmatriculare.getText().toString();
                 Intent intent = new Intent(Rezervation2.this, Harta.class);
-                Toast.makeText(Rezervation2.this, "Rezervarea a fost facuta!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Rezervation2.this, "Rezervarea a fost facuta!\n"  + "Numar de inmatriculare:" + NR_Inmatriculare, Toast.LENGTH_LONG).show();
+                Toast.makeText(Rezervation2.this, "Aveti timp la dispozitie 1h", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }
         });
