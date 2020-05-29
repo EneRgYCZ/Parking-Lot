@@ -83,8 +83,8 @@ public class Log_In extends AppCompatActivity
                             {
                                 if (task.isSuccessful())
                                 {
-                                    Toast.makeText(Log_In.this,"Login successful", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(Log_In.this, Harta.class);
+                                    Toast.makeText(Log_In.this,"Login successful", Toast.LENGTH_SHORT).show();
                                     startActivity(intent);
                                 }
                                 else
@@ -95,6 +95,7 @@ public class Log_In extends AppCompatActivity
                         });
             }
         });
+
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
         {
             final BiometricPrompt biometricPrompt = new BiometricPrompt.Builder(this)
@@ -118,8 +119,8 @@ public class Log_In extends AppCompatActivity
                         @Override
                         public void onAuthenticationSucceeded(BiometricPrompt.AuthenticationResult result)
                         {
-                            Intent intent = new Intent(Log_In.this, Harta.class);
-                            startActivity(intent);
+                            Intent intent1 = new Intent(Log_In.this, Harta.class);
+                            startActivity(intent1);
                         }
                     });
                 }

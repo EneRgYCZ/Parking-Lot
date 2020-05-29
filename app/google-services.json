@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "389700172118-nk21ivc97cjvtnob2f3bk3nq6389keoa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.parkinglot",
+            "certificate_hash": "d20b649435c0090158e0d281f71a90f6129baf21"
+          }
+        },
+        {
           "client_id": "389700172118-oqk934rtt0l88sh1v3mohv09nn1lmqcr.apps.googleusercontent.com",
           "client_type": 3
         }

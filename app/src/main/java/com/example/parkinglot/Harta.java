@@ -179,63 +179,63 @@ public class Harta extends FragmentActivity implements OnMapReadyCallback
 
             Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
-            LatLng locatie = new LatLng(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude());
+            LatLng locatie = new LatLng(44.201859, 28.644579);
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(locatie, 15));
             mMap.addMarker(new MarkerOptions().position(locatie));
         }
 
         mMap.setOnMarkerClickListener
                 (new GoogleMap.OnMarkerClickListener()
-                {
-                    @Override
-                    public boolean onMarkerClick(Marker marker)
-                    {
-                        if (marker.isFlat() == true)
-                        {
-                            if (marker.getZIndex() == 1.0f)
-                            {
-                                Intent intent = new Intent(Harta.this, Rezervation.class);
-                                intent.putExtra("numeParcare1", numeParcare1);
-                                intent.putExtra("detalii1", detalii1);
-                                startActivity(intent);
-                            }
-                            if (marker.getZIndex() == 2.0f)
-                            {
-                                Intent intent2 = new Intent(Harta.this, Rezervation1.class);
-                                intent2.putExtra("numeParcare2", numeParcare2);
-                                intent2.putExtra("detalii2", detalii2);
-                                startActivity(intent2);
-                            }
-                            if (marker.getZIndex() == 3.0f)
-                            {
-                                Intent intent3 = new Intent(Harta.this, Rezervation2.class);
-                                intent3.putExtra("numeParcare3", numeParcare3);
-                                intent3.putExtra("detalii3", detalii3);
-                                startActivity(intent3);
-                            }
-                            if (marker.getZIndex() == 4.0f)
-                            {
-                                Intent intent4 = new Intent(Harta.this, Rezervation3.class);
-                                intent4.putExtra("numeParcare4", numeParcare4);
-                                intent4.putExtra("detalii4", detalii4);
-                                startActivity(intent4);
-                            }
-                            if (marker.getZIndex() == 5.0f)
-                            {
-                                Intent intent5 = new Intent(Harta.this, Rezervation4.class);
-                                intent5.putExtra("numeParcare5", numeParcare5);
-                                intent5.putExtra("detalii5", detalii5);
-                                startActivity(intent5);
-                            }
-                            if (marker.getZIndex() == 6.0f)
-                            {
-                                Toast.makeText(Harta.this,"Ne pare rau aceasta parcare nu mai are locuri disponibile",Toast.LENGTH_LONG);
-                            }
-                        }
-                        return false;
-                    }
-                }
-        );
+                 {
+                     @Override
+                     public boolean onMarkerClick(Marker marker)
+                     {
+                         if (marker.isFlat() == true)
+                         {
+                             if (marker.getZIndex() == 1.0f)
+                             {
+                                 Intent intent = new Intent(Harta.this, Rezervation.class);
+                                 intent.putExtra("numeParcare1", numeParcare1);
+                                 intent.putExtra("detalii1", detalii1);
+                                 startActivity(intent);
+                             }
+                             if (marker.getZIndex() == 2.0f)
+                             {
+                                 Intent intent2 = new Intent(Harta.this, Rezervation1.class);
+                                 intent2.putExtra("numeParcare2", numeParcare2);
+                                 intent2.putExtra("detalii2", detalii2);
+                                 startActivity(intent2);
+                             }
+                             if (marker.getZIndex() == 3.0f)
+                             {
+                                 Intent intent3 = new Intent(Harta.this, Rezervation2.class);
+                                 intent3.putExtra("numeParcare3", numeParcare3);
+                                 intent3.putExtra("detalii3", detalii3);
+                                 startActivity(intent3);
+                             }
+                             if (marker.getZIndex() == 4.0f)
+                             {
+                                 Intent intent4 = new Intent(Harta.this, Rezervation3.class);
+                                 intent4.putExtra("numeParcare4", numeParcare4);
+                                 intent4.putExtra("detalii4", detalii4);
+                                 startActivity(intent4);
+                             }
+                             if (marker.getZIndex() == 5.0f)
+                             {
+                                 Intent intent5 = new Intent(Harta.this, Rezervation4.class);
+                                 intent5.putExtra("numeParcare5", numeParcare5);
+                                 intent5.putExtra("detalii5", detalii5);
+                                 startActivity(intent5);
+                             }
+                             if (marker.getZIndex() == 6.0f)
+                             {
+                                 Toast.makeText(Harta.this,"Ne pare rau aceasta parcare nu mai are locuri disponibile",Toast.LENGTH_LONG);
+                             }
+                         }
+                         return false;
+                     }
+                 }
+                );
 
         Marker mPrimaParcare = mMap.addMarker(new MarkerOptions()
                 .position(PrimaParcare)
@@ -286,7 +286,7 @@ public class Harta extends FragmentActivity implements OnMapReadyCallback
                 .position(ASaseaParcare)
                 .title(numeParcare6)
                 .snippet(detalii6)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))
                 .flat(true)
                 .zIndex(6.0f)
         );

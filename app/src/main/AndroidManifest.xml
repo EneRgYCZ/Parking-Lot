@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="com.example.parkinglot">
+
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -10,8 +11,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <dist:module dist:instant="true" />
-
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
@@ -23,11 +22,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Rezervation4"></activity>
-        <activity android:name=".Rezervation3" />
-        <activity android:name=".Rezervation2" />
-        <activity android:name=".Rezervation1" />
-        <activity android:name=".Rezervation" />
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -42,7 +37,12 @@
 
         <activity
             android:name=".Harta"
-            android:label="@string/title_activity_harta" />
+            android:label="@string/title_activity_harta"></activity>
+        <activity android:name=".Rezervation4" />
+        <activity android:name=".Rezervation3" />
+        <activity android:name=".Rezervation2" />
+        <activity android:name=".Rezervation1" />
+        <activity android:name=".Rezervation" />
         <activity android:name=".Sign_Up" />
         <activity android:name=".Log_In">
             <intent-filter>
