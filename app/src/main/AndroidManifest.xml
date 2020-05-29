@@ -41,12 +41,24 @@
         <activity
             android:name=".Harta"
             android:label="@string/title_activity_harta"></activity>
-        <activity android:name=".Rezervation4" />
-        <activity android:name=".Rezervation3" />
-        <activity android:name=".Rezervation2" />
-        <activity android:name=".Rezervation1" />
-        <activity android:name=".Rezervation" />
-        <activity android:name=".Sign_Up" />
+        <activity android:name=".Rezervation4"
+            android:configChanges="orientation"
+            android:screenOrientation="userPortrait"/>
+        <activity android:name=".Rezervation3"
+            android:configChanges="orientation"
+            android:screenOrientation="userPortrait"/>
+        <activity android:name=".Rezervation2"
+            android:configChanges="orientation"
+            android:screenOrientation="userPortrait"/>
+        <activity android:name=".Rezervation1"
+            android:configChanges="orientation"
+            android:screenOrientation="userPortrait"/>
+        <activity android:name=".Rezervation"
+            android:configChanges="orientation"
+            android:screenOrientation="userPortrait"/>
+        <activity android:name=".Sign_Up"
+            android:configChanges="orientation"
+            android:screenOrientation="userPortrait"/>
         <activity
             android:name=".Log_In"
             android:configChanges="orientation"
