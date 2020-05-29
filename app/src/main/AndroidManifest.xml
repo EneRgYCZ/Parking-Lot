@@ -47,7 +47,11 @@
         <activity android:name=".Rezervation1" />
         <activity android:name=".Rezervation" />
         <activity android:name=".Sign_Up" />
-        <activity android:name=".Log_In">
+        <activity
+            android:name=".Log_In"
+            android:configChanges="orientation"
+            android:screenOrientation="userPortrait">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
