@@ -7,23 +7,6 @@
     tools:context=".Sign_Up">
 
     <EditText
-        android:id="@+id/editText1"
-        android:layout_width="376dp"
-        android:layout_height="41dp"
-        android:background="@drawable/fullname"
-        android:ems="10"
-        android:hint="Full Name"
-        android:paddingLeft="20dp"
-        android:singleLine="false"
-        android:textColor="#2699FB"
-        app:layout_constraintBottom_toTopOf="@+id/editText2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.152" />
-
-    <EditText
         android:id="@+id/editText2"
         android:layout_width="376dp"
         android:layout_height="41dp"
@@ -36,10 +19,9 @@
         android:textColor="#2699FB"
         app:layout_constraintBottom_toTopOf="@+id/editText3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText1"
-        app:layout_constraintVertical_bias="0.271" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editText3"
@@ -54,9 +36,10 @@
         android:textColor="#2699FB"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/editText2"
+        app:layout_constraintVertical_bias="0.784" />
 
     <Button
         android:id="@+id/button"

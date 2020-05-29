@@ -10,6 +10,7 @@
         android:id="@+id/textView3"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="Parcarea"
         android:textAlignment="center"
         android:textSize="36sp"
@@ -23,6 +24,7 @@
         android:id="@+id/textView"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="Detaliile Parcarii"
         android:textAlignment="center"
         android:textSize="24sp"
@@ -36,6 +38,7 @@
         android:id="@+id/textView2"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="Nume parcare"
         android:textAlignment="center"
         android:textSize="36sp"
@@ -50,6 +53,7 @@
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:fontFamily="sans-serif-condensed-medium"
         android:hint="Numar de Inmatriculare"
         android:inputType="textPersonName"
         android:textAlignment="center"
@@ -59,11 +63,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+
     <Button
         android:id="@+id/button3"
-        android:layout_width="412dp"
-        android:layout_height="73dp"
-        android:text="Rezerva"
+        android:layout_width="408dp"
+        android:layout_height="54dp"
+        android:background="@drawable/rezervare_button"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
